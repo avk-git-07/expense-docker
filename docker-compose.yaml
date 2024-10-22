@@ -8,17 +8,17 @@ services:
     image: avkdocr/mysql:v1
     container_name: mysql
     volumes:
-      -mysql:/var/lib/mysql
+    - mysql:/var/lib/mysql
   backend:
     image: avkdocr/backend:v1
     container_name: backend
     depends_on:
-      - mysql
+    - mysql
   frontend:
     image: avkdocr/frontend:v1
     container_name: frontend
     ports:
-      - 80:80
+    - 80:80
     depends_on:
-      - backend
+    - backend
 
